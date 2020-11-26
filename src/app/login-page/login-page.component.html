@@ -1,0 +1,24 @@
+ <form>
+   <div>Login</div>
+   <input #login type="text" name="login"/>
+
+   <div>Password</div>
+   <input #password type="text" name="password"/>
+
+   <div>Name</div>
+   <input #name type="text" name="name"/>
+
+   <div>Lastname</div>
+   <input #lastname type="text" name="lastname"/>
+
+   <div>Age</div>
+   <input #age type="number" name="age"/>
+
+   <div>University</div>
+   <input #university type="number" name="university"/>
+
+   <div>ROle</div>
+   <input #role type="number" name="role"/>
+   <button (click)="saveUser(login.value, password.value, name.value, lastname.value, age.value, university.value, role.value )">Save</button>
+
+ </form>
