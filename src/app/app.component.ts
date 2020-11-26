@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +11,7 @@ export class AppComponent {
 
   constructor(private httpClient: HttpClient){
     this.httpClient.get<any>('http://localhost:8080/users').subscribe(value => console.log(value));
-  }
 
+
+  }
 }

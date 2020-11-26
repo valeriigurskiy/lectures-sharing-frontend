@@ -2,12 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {HttpClientModule} from "@angular/common/http";
-import { LoginPageComponent } from './login-page/login-page.component';
-import {FormsModule} from "@angular/forms";
 import { AboutUsComponent } from './about-us/about-us.component';
-import {RouterModule} from "@angular/router";
 import { AllLecturesComponent } from './all-lectures/all-lectures.component';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+import {RouterModule} from '@angular/router';
+import { AllUsersComponent } from './all-users/all-users.component';
+import { LogInPageComponent } from './log-in-page/log-in-page.component';
+import {RegistrationComponent} from './registration-page/registration-page.component';
+
 
 const routers = [
   {
@@ -17,16 +20,24 @@ const routers = [
     path: 'lectures', component: AllLecturesComponent
   },
   {
-    path: 'login', component: LoginPageComponent
+    path: 'register', component: RegistrationComponent
+  },
+  {
+    path: 'users', component: AllUsersComponent
+  },
+  {
+    path: 'login', component: LogInPageComponent
   }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent,
+    RegistrationComponent,
     AboutUsComponent,
-    AllLecturesComponent
+    AllLecturesComponent,
+    AllUsersComponent,
+    LogInPageComponent
   ],
   imports: [
     BrowserModule,
