@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "UniversitySharing"
+  "defaultProject": "UniversitySharing",
+  "cli": {
+    "analytics": "ec10ecac-d875-4e1d-977d-bbb838416c8c"
+  }
 }
