@@ -1,23 +1,33 @@
-
-   <div>Login</div>
+<div style="text-align: center; margin-top: 15%; font-size: 22px">
+   <div>LOGIN</div>
    <input #login type="text" name="login"/>
 
-   <div>Password</div>
+   <div>PASSWORD</div>
    <input #password type="text" name="password"/>
 
-   <div>Name</div>
+   <div>NAME</div>
    <input #name type="text" name="name"/>
 
-   <div>Lastname</div>
+   <div>LASTNAME</div>
    <input #lastname type="text" name="lastname"/>
 
-   <div>Age</div>
+   <div>AGE</div>
    <input #age type="number" name="age"/>
 
-   <div>University</div>
-   <input #university type="number" name="university"/>
+   <div>UNIVERSITY</div>
+   <input #university type="number" name="university" required maxlength="1"/>
 
-   <div>Role</div>
-   <input #role type="number" name="role"/>
-   <button (click)="saveUser(login.value, password.value, name.value, lastname.value, age.value, university.value, role.value )">Save</button>
+  <div class="col">
+    <div ngbDropdown class="d-inline-block">
+      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <div *ngFor="let university of universities">
+          <button ngbDropdownItem>{{university.name}} - {{university.address}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <br/>
+   <button (click)="saveUser(login.value, password.value, name.value, lastname.value, age.value, university.value,'1')">Save</button>
+</div>

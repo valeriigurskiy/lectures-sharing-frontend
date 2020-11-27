@@ -10,6 +10,7 @@ import {RouterModule} from '@angular/router';
 import { AllUsersComponent } from './all-users/all-users.component';
 import { LogInPageComponent } from './log-in-page/log-in-page.component';
 import {RegistrationComponent} from './registration-page/registration-page.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 const routers = [
@@ -43,7 +44,8 @@ const routers = [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(routers)
+    RouterModule.forRoot(routers),
+    NgbModule
 
   ],
   providers: [],

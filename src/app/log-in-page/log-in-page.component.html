@@ -1,5 +1,10 @@
-<div>Login</div>
-<input #login type="text"/>
-<div>Password</div>
-<input #password type="text"/>
-<button (click)="loginToSite(login.value, password.value)">Login</button>
+<div style="text-align: center; margin-top: 15%; font-size: 22px">
+  <div>LOGIN</div>
+  <input #login type="text" required maxlength="12"/>
+  <br/>
+  <br/>
+  <div>PASSWORD</div>
+  <input #password type="password" required maxlength="24"/>
+  <br/>
+  <button (click)="loginToSite(login.value, password.value)">Login</button>
+</div>
