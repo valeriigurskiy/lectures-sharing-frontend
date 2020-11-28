@@ -10,8 +10,5 @@ export class AppComponent {
   title = 'UniversitySharing';
 
   constructor(private httpClient: HttpClient){
-    this.httpClient.get<any>('http://localhost:8080/users').subscribe(value => console.log(value));
-
-
   }
 }

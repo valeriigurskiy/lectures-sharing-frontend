@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {User} from '../entity/User';
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-all-users',
@@ -9,7 +10,9 @@ import {User} from '../entity/User';
 })
 export class AllUsersComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private title: Title) {
+    this.title.setTitle('Users');
+  }
 
   users: User;
 
