@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Title} from '@angular/platform-browser';
+import {HttpClient} from "@angular/common/http";
+import {University} from "../entity/University";
 
 @Component({
   selector: 'app-home-page',
@@ -8,8 +10,11 @@ import {Title} from '@angular/platform-browser';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(private title: Title) {
+  universities: University;
+
+  constructor(private title: Title, private httpClient: HttpClient) {
     this.title.setTitle('Home');
+    this.httpClient.get<University>('http://localhost:8080/university').subscribe(value => console.log(value));
   }
 
   ngOnInit(): void {
