@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {University} from '../entity/University';
 import {HttpClient} from '@angular/common/http';
-import {User} from "../entity/User";
+import {User} from '../entity/User';
 
 @Component({
   selector: 'app-single-page-university',

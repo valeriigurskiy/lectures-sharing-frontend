@@ -3,7 +3,7 @@ import {HttpClient, HttpRequest} from '@angular/common/http';
 import {User} from '../entity/User';
 import {University} from '../entity/University';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Title} from "@angular/platform-browser";
+import {Title} from '@angular/platform-browser';
 interface Food {
   value: string;
   viewValue: string;
@@ -19,10 +19,11 @@ export class RegistrationComponent implements OnInit {
     this.title.setTitle('Registration');
   }
 
+  user: User;
   validatingForm: FormGroup;
-
   universities: University;
   value: University;
+  passwordValue: boolean;
 
   ngOnInit(): void {
     this.validatingForm = new FormGroup({
@@ -33,6 +34,14 @@ export class RegistrationComponent implements OnInit {
       age: new FormControl()
     });
     this.httpClient.get<University>('http://localhost:8080/university').subscribe(value => this.universities = value);
+  }
+
+  passwordTrigger(event): void{
+    if (event.type === 'password'){
+      event.type = 'text';
+    } else{
+      event.type = 'password';
+    }
   }
 
   saveUser(login: string, password: string, name: string, lastname: string, age: string, role: string): void{

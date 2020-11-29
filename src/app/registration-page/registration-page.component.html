@@ -1,9 +1,12 @@
-<div style="text-align: center; margin-top: 15%; font-size: 22px">
+<div style="text-align: center; margin-top: 8%; font-size: 22px" >
    <div>LOGIN</div>
    <input #login type="text" name="login" required maxlength="12"/>
 
-   <div>PASSWORD</div>
-   <input #password type="text" name="password" required maxlength="24"/>
+   <div>
+     <div>PASSWORD</div>
+     <input #password type="password" name="password" required maxlength="24"/>
+     <img (click)="passwordTrigger(password)" style="width: 30px; height: 30px;" src="https://cdn0.iconfinder.com/data/icons/mono2/100/view-512.png">
+   </div>
 
    <div>NAME</div>
    <input #name type="text" name="name" required maxlength="12"/>
