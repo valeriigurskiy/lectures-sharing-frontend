@@ -1,28 +1,29 @@
-<div style="text-align: center; margin-top: 8%; font-size: 22px" >
-   <div>LOGIN</div>
-   <input #login type="text" name="login" required maxlength="12"/>
+<form [formGroup]="myGroup">
+<div style="text-align: center; margin-top: 4%; font-size: 22px">
+    <div>LOGIN</div>
+      <input #login type="text" name="log" required maxlength="12" formControlName="login"/>
 
-   <div>
-     <div>PASSWORD</div>
-     <input #password type="password" name="password" required maxlength="24"/>
-     <img (click)="passwordTrigger(password)" style="width: 30px; height: 30px;" src="https://cdn0.iconfinder.com/data/icons/mono2/100/view-512.png">
-   </div>
+    <div>PASSWORD</div>
+    <input #password type="password" name="password" required maxlength="24" style="margin-left: 30px" formControlName="password"/>
+    <img (click)="passwordTrigger(password)" style="width: 30px; height: 30px; margin-bottom: 5px" src="https://cdn0.iconfinder.com/data/icons/mono2/100/view-512.png">
 
-   <div>NAME</div>
-   <input #name type="text" name="name" required maxlength="12"/>
+    <div>NAME</div>
+    <input #name type="text" name="name" required maxlength="12" formControlName="name"/>
 
-   <div>LASTNAME</div>
-   <input #lastname type="text" name="lastname" required maxlength="16"/>
+    <div>LASTNAME</div>
+    <input #lastname type="text" name="lastname" required maxlength="16" formControlName="lastname"/>
 
-   <div>AGE</div>
-   <input #age type="number" name="age" required min="16" max="30" />
+    <div>AGE</div>
+    <input #age type="number" name="age" required min="16" max="30" formControlName="age"/>
 
-  <div>UNIVERSITY</div>
-  <select [(ngModel)]="value">
-    <option *ngFor="let university of universities" [ngValue]="university">
-      {{university.name}}</option>
-  </select>
+    <div>UNIVERSITY</div>
+      <select [(ngModel)]="value" formControlName="university">
+        <option *ngFor="let university of universities" [ngValue]="university">
+          {{university.name}}</option>
+      </select>
 
-  <br/>
-   <button (click)="saveUser(login.value, password.value, name.value, lastname.value, age.value,'1')">REGISTER</button>
+    <br/>
+    <button [disabled]="!myGroup.valid" (click)="saveUser(login.value, password.value, name.value, lastname.value, age.value, value.name, '1')">REGISTER</button>
+<!--  <button [disabled]="!form.valid" (click)="saveUser('1','2', name.value,'3','4','1' )">REGISTER</button>-->
 </div>
+</form>
