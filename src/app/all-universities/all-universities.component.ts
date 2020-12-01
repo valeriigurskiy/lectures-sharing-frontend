@@ -3,7 +3,6 @@ import {HttpClient} from '@angular/common/http';
 import {University} from '../entity/University';
 import {Title} from "@angular/platform-browser";
 import {Router} from "@angular/router";
-import {state} from "@angular/animations";
 
 @Component({
   selector: 'app-all-universities',

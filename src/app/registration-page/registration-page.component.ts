@@ -4,6 +4,7 @@ import {User} from '../entity/User';
 import {University} from '../entity/University';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Title} from '@angular/platform-browser';
+import {Router} from "@angular/router";
 interface Food {
   value: string;
   viewValue: string;
@@ -15,18 +16,17 @@ interface Food {
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient, private title: Title, private formBuilder: FormBuilder) {
+  constructor(private httpClient: HttpClient, private title: Title, private formBuilder: FormBuilder, private router: Router) {
     this.title.setTitle('Registration');
   }
 
   user: User;
   myGroup: FormGroup;
-  profileForm: FormGroup;
   universities: University;
   value: University;
   passwordValue: boolean;
   buttonStatus: true;
-  dateObj = new Date();
+  // dateObj = new Date();
 
   ngOnInit(): void {
     this.myGroup = new FormGroup({
@@ -39,7 +39,6 @@ export class RegistrationComponent implements OnInit {
     });
 
     this.httpClient.get<University>('http://localhost:8080/university').subscribe(value => this.universities = value);
-    console.log(this.value);
   }
 
   passwordTrigger(event): void{
@@ -58,6 +57,7 @@ export class RegistrationComponent implements OnInit {
     const body = {login, password, name, lastname, age, university, role};
     const req = new HttpRequest('POST', 'http://localhost:8080/users', body);
     this.httpClient.request(req).subscribe(value => console.log(value));
+    this.router.navigate(['login']);
   }
 }
 

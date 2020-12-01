@@ -1,10 +1,12 @@
+<form [formGroup]="myGroup">
 <div style="text-align: center; margin-top: 15%; font-size: 22px">
   <div>LOGIN</div>
-  <input #login type="text" required maxlength="12"/>
-  <br/>
-  <br/>
+  <input type="text" required maxlength="12" [(ngModel)]="login" formControlName="password"/>
+
   <div>PASSWORD</div>
-  <input #password type="password" required maxlength="24"/>
+  <input type="password" required maxlength="24" [(ngModel)]="password" formControlName="password"/>
   <br/>
-  <button (click)="loginToSite(login.value, password.value)">Login</button>
+  <div *ngIf="invalidLogin">Login or password incorrect</div>
+  <button [disabled]="!myGroup.valid" (click)="checkLogin()">Login</button>
 </div>
+</form>
