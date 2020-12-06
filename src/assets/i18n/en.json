@@ -1,0 +1,26 @@
+{
+  "HEADER": {
+    "HOME": "Home",
+    "LOGIN": "Login",
+    "REGISTRATION": "Registration",
+    "UNIVERSITIES": "Universities",
+    "USERS": "Users",
+    "ABOUT_US": "About us",
+    "LOG_OUT": "Log out"
+  },
+  "LOGIN_PAGE": {
+    "LOGIN": "Login",
+    "PASSWORD": "Password",
+    "ERROR": "Login or password incorrect",
+    "BUTTON_VALUE": "Login"
+  },
+  "REGISTRATION_PAGE": {
+    "LOGIN": "Login",
+    "PASSWORD": "Password",
+    "NAME": "Name",
+    "LASTNAME": "Lastname",
+    "AGE": "Age",
+    "UNIVERSITY": "University",
+    "REGISTER": "Register"
+  }
+}

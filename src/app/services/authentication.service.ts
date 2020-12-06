@@ -14,25 +14,25 @@ export class AuthenticationService {
     this.httpClientService.getUsers().subscribe(value => this.users = value);
   }
 
-  authenticate(username, password) {
-    this.users.forEach(value => {
-      if (value.login === username && value.password === password) {
-        sessionStorage.setItem('username', username);
-        this.result = true;
-      } else {
+  authenticate(login, password) {
+    this.users.forEach(user => {
+      if (user.login !== login && user.password !== password) {
         this.result = false;
+      } else {
+        sessionStorage.setItem('login', login);
+        this.result = true;
       }
     });
     return this.result;
   }
 
   isUserLoggedIn() {
-    const user = sessionStorage.getItem('username');
+    const user = sessionStorage.getItem('login');
     return !(user === null);
   }
 
   logOut() {
-    sessionStorage.removeItem('username');
+    sessionStorage.removeItem('login');
   }
 
 }

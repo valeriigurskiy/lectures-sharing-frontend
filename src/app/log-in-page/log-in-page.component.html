@@ -1,12 +1,14 @@
 <form [formGroup]="myGroup">
 <div style="text-align: center; margin-top: 15%; font-size: 22px">
-  <div>LOGIN</div>
-  <input type="text" required maxlength="12" [(ngModel)]="login" formControlName="password"/>
+  <div>{{ 'LOGIN_PAGE.LOGIN' | translate}}</div>
+  <input type="text" required maxlength="12" [(ngModel)]="login" formControlName="login"/>
 
-  <div>PASSWORD</div>
+  <div>{{ 'LOGIN_PAGE.PASSWORD' | translate}}</div>
   <input type="password" required maxlength="24" [(ngModel)]="password" formControlName="password"/>
   <br/>
-  <div *ngIf="invalidLogin">Login or password incorrect</div>
-  <button [disabled]="!myGroup.valid" (click)="checkLogin()">Login</button>
+
+  <div *ngIf="invalidLogin">{{ 'LOGIN_PAGE.ERROR' | translate }}</div>
+
+  <button [disabled]="!myGroup.valid" (click)="checkLogin()">{{ 'LOGIN_PAGE.BUTTON_VALUE' | translate}}</button>
 </div>
 </form>

@@ -1,0 +1,26 @@
+{
+  "HEADER": {
+    "HOME": "Главная",
+    "LOGIN": "Логин",
+    "REGISTRATION": "Регистрация",
+    "UNIVERSITIES": "Университеты",
+    "USERS": "Пользователи",
+    "ABOUT_US": "Об проекте",
+    "LOG_OUT": "Выйти"
+  },
+  "LOGIN_PAGE": {
+    "LOGIN": "Логин",
+    "PASSWORD": "Пароль",
+    "ERROR": "Имя пользователя или пароль введены неправильно",
+    "BUTTON_VALUE": "Войти"
+  },
+  "REGISTRATION_PAGE": {
+    "LOGIN": "Логин",
+    "PASSWORD": "Пароль",
+    "NAME": "Имя",
+    "LASTNAME": "Фамилия",
+    "AGE": "Возраст",
+    "UNIVERSITY": "Университет",
+    "REGISTER": "Зарегистрироваться"
+  }
+}

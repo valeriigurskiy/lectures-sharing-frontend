@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from "../services/authentication.service";
+import {AuthenticationService} from '../services/authentication.service';
+import {TranslateService} from '@ngx-translate/core';
+import '@angular/compiler';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +10,25 @@ import {AuthenticationService} from "../services/authentication.service";
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public loginService: AuthenticationService) { }
+  selectLang: string;
+
+  constructor(public loginService: AuthenticationService, public translate: TranslateService) {
+    const lang = localStorage.getItem('lang');
+    translate.addLangs(['ru', 'ua']);
+    translate.setDefaultLang(lang);
+
+    const browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/lang/) ? browserLang : lang);
+    console.log(this.selectLang);
+  }
 
   ngOnInit(): void {
   }
 
+  saveLang(lang: string){
+    localStorage.setItem('lang', lang);
+  }
+
 }
+
+

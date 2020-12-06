@@ -2,9 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpRequest} from '@angular/common/http';
 import {User} from '../entity/User';
 import {University} from '../entity/University';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Title} from '@angular/platform-browser';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
+import {HttpclientService} from '../services/httpclient.service';
+import {log} from "util";
 interface Food {
   value: string;
   viewValue: string;
@@ -16,17 +19,21 @@ interface Food {
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient, private title: Title, private formBuilder: FormBuilder, private router: Router) {
+  constructor(private httpclientService: HttpclientService, private httpClient: HttpClient, private title: Title, private formBuilder: FormBuilder, private router: Router, private translate: TranslateService) {
+    const lang = localStorage.getItem('lang');
+    translate.addLangs(['ru', 'ua']);
+    translate.setDefaultLang(lang);
+
+    const browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/lang/) ? browserLang : lang);
     this.title.setTitle('Registration');
+    this.httpclientService.getUsers().subscribe(value => this.users = value);
   }
 
-  user: User;
+  users: User[];
   myGroup: FormGroup;
   universities: University;
   value: University;
-  passwordValue: boolean;
-  buttonStatus: true;
-  // dateObj = new Date();
 
   ngOnInit(): void {
     this.myGroup = new FormGroup({
@@ -41,22 +48,22 @@ export class RegistrationComponent implements OnInit {
     this.httpClient.get<University>('http://localhost:8080/university').subscribe(value => this.universities = value);
   }
 
-  passwordTrigger(event): void{
-    if (event.type === 'password'){
+  passwordTrigger(event): void {
+    if (event.type === 'password') {
       event.type = 'text';
-    } else{
+    } else {
       event.type = 'password';
     }
   }
 
-  saveUser(login: string, password: string, name: string, lastname: string, age: string, university: string, role: string): void{
-    if (age > '30'){
+  saveUser(login: string, password: string, name: string, lastname: string, age: string, university: string, role: string): void {
+    if (age > '30') {
       age = '30';
     }
 
     const body = {login, password, name, lastname, age, university, role};
     const req = new HttpRequest('POST', 'http://localhost:8080/users', body);
-    this.httpClient.request(req).subscribe(value => console.log(value));
+    this.httpClient.request(req).subscribe();
     this.router.navigate(['login']);
   }
 }

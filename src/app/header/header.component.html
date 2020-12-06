@@ -1,13 +1,16 @@
 <header>
   <nav class ="navbar navbar-expand-md navbar-dark bg-dark">
     <ul class="navbar-nav">
-      <li><a routerLink="/" class="nav-link">Home</a></li>
-      <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/register" class="nav-link">Register</a></li>
-      <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
-      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/universities" class="nav-link">Universities</a></li>
-      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/users" class="nav-link">Users</a></li>
-      <li><a routerLink="/about-us" class="nav-link">About us</a></li>
-      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Log out</a> </li>
+      <li><a routerLink="/" class="nav-link">{{ 'HEADER.HOME' | translate}}</a></li>
+      <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/register" class="nav-link">{{ 'HEADER.REGISTRATION' | translate}}</a></li>
+      <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">{{ 'HEADER.LOGIN' | translate}}</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/universities" class="nav-link">{{ 'HEADER.UNIVERSITIES' | translate}}</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/users" class="nav-link">{{ 'HEADER.USERS' | translate}}</a></li>
+      <li><a routerLink="/about-us" class="nav-link">{{ 'HEADER.ABOUT_US' | translate}}</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">{{ 'HEADER.LOG_OUT' | translate}}</a> </li>
     </ul>
+    <select #langSelect (change)="translate.use(langSelect.value)" (click)="saveLang(langSelect.value)">
+      <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+    </select>
   </nav>
 </header>

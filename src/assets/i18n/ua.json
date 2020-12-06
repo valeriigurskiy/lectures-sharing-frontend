@@ -1,0 +1,26 @@
+{
+  "HEADER": {
+    "HOME": "Головна",
+    "LOGIN": "Логін",
+    "REGISTRATION": "Зареєструватися",
+    "UNIVERSITIES": "Університети",
+    "USERS": "Користувачі",
+    "ABOUT_US": "Про нас",
+    "LOG_OUT": "Вийти"
+  },
+  "LOGIN_PAGE": {
+    "LOGIN": "Логін",
+    "PASSWORD": "Пароль",
+    "ERROR": "Їм'я користувача або пароль введені неправильно",
+    "BUTTON_VALUE": "Увійти"
+  },
+  "REGISTRATION_PAGE": {
+    "LOGIN": "Логін",
+    "PASSWORD": "Пароль",
+    "NAME": "Їм'я",
+    "LASTNAME": "Прізвище",
+    "AGE": "Вік",
+    "UNIVERSITY": "Университет",
+    "REGISTER": "Зареєструватися"
+  }
+}

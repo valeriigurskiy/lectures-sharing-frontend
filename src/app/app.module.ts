@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app/app.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { AllLecturesComponent } from './all-lectures/all-lectures.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import { AllUsersComponent } from './all-users/all-users.component';
@@ -16,8 +16,10 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { AllUniversitiesComponent } from './all-universities/all-universities.component';
 import { SinglePageUniversityComponent } from './single-page-university/single-page-university.component';
 import { HeaderComponent } from './header/header.component';
-import {AuthguardService} from "./services/authguard.service";
+import {AuthguardService} from './services/authguard.service';
 import { LogOutComponent } from './log-out/log-out.component';
+import {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 const routers = [
   {
@@ -50,6 +52,12 @@ const routers = [
   }
   ];
 
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+}
+
+// @ts-ignore
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +81,14 @@ const routers = [
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

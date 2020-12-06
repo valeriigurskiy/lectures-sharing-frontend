@@ -1,28 +1,28 @@
 <form [formGroup]="myGroup">
 <div style="text-align: center; margin-top: 4%; font-size: 22px">
-    <div>LOGIN</div>
+    <div>{{ 'REGISTRATION_PAGE.LOGIN' | translate}}</div>
       <input #login type="text" name="log" required maxlength="12" formControlName="login"/>
 
-    <div>PASSWORD</div>
+    <div>{{ 'REGISTRATION_PAGE.PASSWORD' | translate}}</div>
     <input #password type="password" name="password" required maxlength="24" style="margin-left: 30px" formControlName="password"/>
     <img (click)="passwordTrigger(password)" style="width: 30px; height: 30px; margin-bottom: 5px" src="https://cdn0.iconfinder.com/data/icons/mono2/100/view-512.png">
 
-    <div>NAME</div>
+    <div>{{ 'REGISTRATION_PAGE.NAME' | translate}}</div>
     <input #name type="text" name="name" required maxlength="12" formControlName="name"/>
 
-    <div>LASTNAME</div>
+    <div>{{ 'REGISTRATION_PAGE.LASTNAME' | translate}}</div>
     <input #lastname type="text" name="lastname" required maxlength="16" formControlName="lastname"/>
 
-    <div>AGE</div>
+    <div>{{ 'REGISTRATION_PAGE.AGE' | translate}}</div>
     <input #age type="number" name="age" required min="16" max="30" formControlName="age"/>
 
-    <div>UNIVERSITY</div>
+    <div>{{ 'REGISTRATION_PAGE.UNIVERSITY' | translate}}</div>
       <select [(ngModel)]="value" formControlName="university">
         <option *ngFor="let university of universities" [ngValue]="university">
           {{university.name}}</option>
       </select>
 
     <br/>
-    <button [disabled]="!myGroup.valid" (click)="saveUser(login.value, password.value, name.value, lastname.value, age.value, value.name, '1')">REGISTER</button>
+    <button [disabled]="!myGroup.valid" (click)="saveUser(login.value, password.value, name.value, lastname.value, age.value, value.name, '1')">{{ 'REGISTRATION_PAGE.REGISTER' | translate}}</button>
 </div>
 </form>

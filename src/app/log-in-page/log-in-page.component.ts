@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Title} from "@angular/platform-browser";
-import {ActivatedRoute, Params, Router} from "@angular/router";
-import {AuthenticationService} from "../services/authentication.service";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Title} from '@angular/platform-browser';
+import {ActivatedRoute, Params, Router} from '@angular/router';
+import {AuthenticationService} from '../services/authentication.service';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {TranslateService} from "@ngx-translate/core";
+// import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-log-in-page',
@@ -11,7 +13,13 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class LogInPageComponent implements OnInit {
 
-  constructor(private title: Title, private router: Router, private loginService: AuthenticationService) {
+  constructor(private title: Title, private router: Router, private loginService: AuthenticationService, private translate: TranslateService) {
+    const lang = localStorage.getItem('lang');
+
+    translate.addLangs(['ru', 'ua']);
+    translate.setDefaultLang(localStorage.getItem('lang'));
+    const browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/lang/) ? browserLang : lang);
     this.title.setTitle('Login');
   }
 
@@ -31,7 +39,7 @@ export class LogInPageComponent implements OnInit {
     if (this.loginService.authenticate(this.login, this.password)) {
       this.router.navigate(['']);
       this.invalidLogin = false;
-    } else{
+    } else {
       this.invalidLogin = true;
     }
   }
