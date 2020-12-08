@@ -24,10 +24,6 @@ export class HttpclientService {
     return this.httpClient.post<User>('http://localhost:8080/users', user);
   }
 
-  public findUserByLogin(login) {
-    return this.httpClient.get<User>('http://localhost:8080/users/user', login);
-  }
-
   getHeaders(){
     const username = 'admin';
     const password = 'password';

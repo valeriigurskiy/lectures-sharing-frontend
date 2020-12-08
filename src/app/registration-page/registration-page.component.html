@@ -1,8 +1,8 @@
 <form [formGroup]="myGroup">
 <div style="text-align: center; margin-top: 4%; font-size: 22px">
     <div>{{ 'REGISTRATION_PAGE.LOGIN' | translate}}</div>
-      <input #login type="text" name="log" required maxlength="12" formControlName="login"/>
-
+      <input #login (change)="onLoginChange(login.value)" type="text" name="log" required maxlength="12" formControlName="login"/>
+    <div *ngIf="userExistInDB">User already exist in db</div>
     <div>{{ 'REGISTRATION_PAGE.PASSWORD' | translate}}</div>
     <input #password type="password" name="password" required maxlength="24" style="margin-left: 30px" formControlName="password"/>
     <img (click)="passwordTrigger(password)" style="width: 30px; height: 30px; margin-bottom: 5px" src="https://cdn0.iconfinder.com/data/icons/mono2/100/view-512.png">

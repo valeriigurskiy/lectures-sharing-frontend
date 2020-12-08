@@ -6,8 +6,7 @@ import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '
 import {Title} from '@angular/platform-browser';
 import {Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
-import {HttpclientService} from '../services/httpclient.service';
-import {log} from "util";
+import {HttpclientService} from '../services/httpclient.service';;
 interface Food {
   value: string;
   viewValue: string;
@@ -30,10 +29,11 @@ export class RegistrationComponent implements OnInit {
     this.httpclientService.getUsers().subscribe(value => this.users = value);
   }
 
-  users: User[];
+  users: any;
   myGroup: FormGroup;
   universities: University;
   value: University;
+  userExistInDB: boolean;
 
   ngOnInit(): void {
     this.myGroup = new FormGroup({
@@ -65,6 +65,16 @@ export class RegistrationComponent implements OnInit {
     const req = new HttpRequest('POST', 'http://localhost:8080/users', body);
     this.httpClient.request(req).subscribe();
     this.router.navigate(['login']);
+  }
+
+  onLoginChange(login: string) {
+    this.httpClient.get<any>('http://localhost:8080/users/user/' + login).subscribe(user => {
+      if (user.length === 0) {
+        this.userExistInDB = false;
+      } else {
+        this.userExistInDB = true;
+      }
+    });
   }
 }
 

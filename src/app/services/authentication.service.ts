@@ -16,11 +16,11 @@ export class AuthenticationService {
 
   authenticate(login, password) {
     this.users.forEach(user => {
-      if (user.login !== login && user.password !== password) {
-        this.result = false;
-      } else {
+      if (user.login === login && user.password === password) {
         sessionStorage.setItem('login', login);
         this.result = true;
+      } else {
+        this.result = false;
       }
     });
     return this.result;
