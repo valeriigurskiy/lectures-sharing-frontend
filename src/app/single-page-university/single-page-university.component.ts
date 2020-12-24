@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {University} from '../entity/University';
 import {HttpClient} from '@angular/common/http';
-import {User} from '../entity/User';
+import {UserEntity} from '../entity/UserEntity';
 import {Title} from "@angular/platform-browser";
 
 @Component({

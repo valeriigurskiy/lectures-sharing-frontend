@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {User} from '../entity/User';
+import {UserEntity} from '../entity/UserEntity';
 import {Title} from "@angular/platform-browser";
 import {HttpclientService} from "../services/httpclient.service";
 
@@ -15,7 +15,7 @@ export class AllUsersComponent implements OnInit {
     this.title.setTitle('Users');
   }
 
-  users: User[];
+  users: UserEntity[];
 
   ngOnInit(): void {
     this.httpClientService.getUsers().subscribe(value => this.users = value);

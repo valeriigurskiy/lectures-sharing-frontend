@@ -3,7 +3,8 @@ import {Title} from '@angular/platform-browser';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {AuthenticationService} from '../services/authentication.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {TranslateService} from "@ngx-translate/core";
+import {TranslateService} from '@ngx-translate/core';
+import {HttpclientService} from '../services/httpclient.service';
 // import {TranslateService} from '@ngx-translate/core';
 
 @Component({
@@ -12,8 +13,9 @@ import {TranslateService} from "@ngx-translate/core";
   styleUrls: ['./log-in-page.component.css']
 })
 export class LogInPageComponent implements OnInit {
+  active = 1;
 
-  constructor(private title: Title, private router: Router, private loginService: AuthenticationService, private translate: TranslateService) {
+  constructor(private title: Title, private router: Router, private loginService: AuthenticationService, private translate: TranslateService, private httpClientService: HttpclientService) {
     const lang = localStorage.getItem('lang');
 
     translate.addLangs(['ru', 'ua']);
@@ -35,8 +37,8 @@ export class LogInPageComponent implements OnInit {
     });
   }
 
-  checkLogin() {
-    if (this.loginService.authenticate(this.login, this.password)) {
+  checkTeacherLogin(): void {
+    if (this.loginService.authenticateTeacher(this.login, this.password)) {
       this.router.navigate(['']);
       this.invalidLogin = false;
     } else {
@@ -44,4 +46,12 @@ export class LogInPageComponent implements OnInit {
     }
   }
 
+  checkUserLogin(): void {
+    if (this.loginService.authenticateUser(this.login, this.password)) {
+      this.router.navigate(['']);
+      this.invalidLogin = false;
+    } else {
+      this.invalidLogin = true;
+    }
+  }
 }

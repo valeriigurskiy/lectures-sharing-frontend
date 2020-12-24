@@ -20,6 +20,7 @@ import {AuthguardService} from './services/authguard.service';
 import { LogOutComponent } from './log-out/log-out.component';
 import {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { UniversityComponent } from './university/university.component';
 
 const routers = [
   {
@@ -42,6 +43,9 @@ const routers = [
   },
   {
     path: 'universities', component: AllUniversitiesComponent, canActivate: [AuthguardService]
+  },
+  {
+    path: 'university', component: UniversityComponent, canActivate: [AuthguardService]
   },
   {
     path: 'university/:name', component: SinglePageUniversityComponent, canActivate: [AuthguardService]
@@ -71,7 +75,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AllUniversitiesComponent,
     SinglePageUniversityComponent,
     HeaderComponent,
-    LogOutComponent
+    LogOutComponent,
+    UniversityComponent
   ],
   imports: [
     BrowserModule,

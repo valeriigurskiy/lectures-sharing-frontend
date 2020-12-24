@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {University} from '../entity/University';
-import {Title} from "@angular/platform-browser";
-import {Router} from "@angular/router";
+import {Title} from '@angular/platform-browser';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-all-universities',

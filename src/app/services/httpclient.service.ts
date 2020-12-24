@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {User} from "../entity/User";
+import {UserEntity} from "../entity/UserEntity";
+import {Teacher} from "../entity/Teacher";
 
 @Injectable({
   providedIn: 'root'
@@ -15,13 +16,23 @@ export class HttpclientService {
     const headers = new HttpHeaders(
       {Authorization: basicString}
     );
-    return this.httpClient.get<User[]>('http://localhost:8080/users', {headers});
+    return this.httpClient.get<UserEntity[]>('http://localhost:8080/users', {headers});
   }
+
+  public getTeachers() {
+    const basicString = this.getHeaders();
+
+    const headers = new HttpHeaders(
+      {Authorization: basicString}
+    );
+    return this.httpClient.get<Teacher[]>('http://localhost:8080/teachers', {headers});
+  }
+
   public deleteUser(user) {
-    return this.httpClient.delete<User>('http://localhost:8080/users' + '/' + user.id);
+    return this.httpClient.delete<UserEntity>('http://localhost:8080/users' + '/' + user.id);
   }
   public createUser(user) {
-    return this.httpClient.post<User>('http://localhost:8080/users', user);
+    return this.httpClient.post<UserEntity>('http://localhost:8080/users', user);
   }
 
   getHeaders(){

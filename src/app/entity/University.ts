@@ -1,5 +1,6 @@
 export class University{
-  name: string;
   address: string;
+  id: number;
+  name: string;
   pictureURL: string;
 }

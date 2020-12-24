@@ -19,7 +19,6 @@ export class HeaderComponent implements OnInit {
 
     const browserLang = translate.getBrowserLang();
     translate.use(browserLang.match(/lang/) ? browserLang : lang);
-    console.log(this.selectLang);
   }
 
   ngOnInit(): void {

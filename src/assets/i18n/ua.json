@@ -4,6 +4,7 @@
     "LOGIN": "Логін",
     "REGISTRATION": "Зареєструватися",
     "UNIVERSITIES": "Університети",
+    "UNIVERSITY": "Університет",
     "USERS": "Користувачі",
     "ABOUT_US": "Про нас",
     "LOG_OUT": "Вийти"
@@ -12,7 +13,9 @@
     "LOGIN": "Логін",
     "PASSWORD": "Пароль",
     "ERROR": "Їм'я користувача або пароль введені неправильно",
-    "BUTTON_VALUE": "Увійти"
+    "BUTTON_VALUE": "Увійти",
+    "TYPESTUDENT": "Студент",
+    "TYPETEACHER": "Викладач"
   },
   "REGISTRATION_PAGE": {
     "LOGIN": "Логін",
@@ -22,5 +25,9 @@
     "AGE": "Вік",
     "UNIVERSITY": "Университет",
     "REGISTER": "Зареєструватися"
+  },
+  "PAGE_NOT_FOUND": {
+    "HEADER": "Цієї сторінки не існує",
+    "LINK": "Головна сторінка"
   }
 }

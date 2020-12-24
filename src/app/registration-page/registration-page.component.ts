@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpRequest} from '@angular/common/http';
-import {User} from '../entity/User';
+import {UserEntity} from '../entity/UserEntity';
 import {University} from '../entity/University';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Title} from '@angular/platform-browser';
 import {Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
-import {HttpclientService} from '../services/httpclient.service';;
+import {HttpclientService} from '../services/httpclient.service';
 interface Food {
   value: string;
   viewValue: string;

@@ -1,14 +1,50 @@
 <form [formGroup]="myGroup">
 <div style="text-align: center; margin-top: 15%; font-size: 22px">
-  <div>{{ 'LOGIN_PAGE.LOGIN' | translate}}</div>
-  <input type="text" required maxlength="12" [(ngModel)]="login" formControlName="login"/>
+<!--  <div>{{ 'LOGIN_PAGE.LOGIN' | translate}}</div>-->
+<!--  <input type="text" required maxlength="12" [(ngModel)]="login" formControlName="login"/>-->
 
-  <div>{{ 'LOGIN_PAGE.PASSWORD' | translate}}</div>
-  <input type="password" required maxlength="24" [(ngModel)]="password" formControlName="password"/>
-  <br/>
+<!--  <div>{{ 'LOGIN_PAGE.PASSWORD' | translate}}</div>-->
+<!--  <input type="password" required maxlength="24" [(ngModel)]="password" formControlName="password"/>-->
+<!--  <br/>-->
 
-  <div *ngIf="invalidLogin">{{ 'LOGIN_PAGE.ERROR' | translate }}</div>
+<!--  <div *ngIf="invalidLogin">{{ 'LOGIN_PAGE.ERROR' | translate }}</div>-->
 
-  <button [disabled]="!myGroup.valid" (click)="checkLogin()">{{ 'LOGIN_PAGE.BUTTON_VALUE' | translate}}</button>
+  <ul ngbNav #nav="ngbNav" [(activeId)]="active" [destroyOnHide]="false" class="nav-tabs" style="width: 400px; margin-left: 42%">
+    <li [ngbNavItem]="1" [destroyOnHide]="true">
+      <a ngbNavLink>{{'LOGIN_PAGE.TYPESTUDENT' | translate}}</a>
+      <ng-template ngbNavContent>
+        <div>{{ 'LOGIN_PAGE.LOGIN' | translate}}</div>
+        <input type="text" required maxlength="12" [(ngModel)]="login" formControlName="login"/>
+
+        <div>{{ 'LOGIN_PAGE.PASSWORD' | translate}}</div>
+        <input type="password" required maxlength="24" [(ngModel)]="password" formControlName="password"/>
+        <br/>
+
+        <div *ngIf="invalidLogin">{{ 'LOGIN_PAGE.ERROR' | translate }}</div>
+        <button [disabled]="!myGroup.valid" (click)="checkUserLogin()">{{ 'LOGIN_PAGE.BUTTON_VALUE' | translate}}</button>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="2" [destroyOnHide]="true">
+      <a ngbNavLink>{{ 'LOGIN_PAGE.TYPETEACHER' | translate}}</a>
+      <ng-template ngbNavContent>
+
+        <div>{{ 'LOGIN_PAGE.LOGIN' | translate}}</div>
+        <input type="text" required maxlength="12" [(ngModel)]="login" formControlName="login"/>
+
+        <div>{{ 'LOGIN_PAGE.PASSWORD' | translate}}</div>
+        <input type="password" required maxlength="24" [(ngModel)]="password" formControlName="password"/>
+        <br/>
+
+        <div *ngIf="invalidLogin">{{ 'LOGIN_PAGE.ERROR' | translate }}</div>
+        <button [disabled]="!myGroup.valid" (click)="checkTeacherLogin()">{{ 'LOGIN_PAGE.BUTTON_VALUE' | translate}}</button>
+
+      </ng-template>
+    </li>
+
+  </ul>
+
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+
 </div>
 </form>

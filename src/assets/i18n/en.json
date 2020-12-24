@@ -22,5 +22,9 @@
     "AGE": "Age",
     "UNIVERSITY": "University",
     "REGISTER": "Register"
+  },
+  "PAGE_NOT_FOUND": {
+    "HEADER": "This page does not exist",
+    "HOME_PAGE": "Home page"
   }
 }

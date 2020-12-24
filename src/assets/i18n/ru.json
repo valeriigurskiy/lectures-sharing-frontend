@@ -4,6 +4,7 @@
     "LOGIN": "Логин",
     "REGISTRATION": "Регистрация",
     "UNIVERSITIES": "Университеты",
+    "UNIVERSITY": "Университет",
     "USERS": "Пользователи",
     "ABOUT_US": "Об проекте",
     "LOG_OUT": "Выйти"
@@ -12,7 +13,9 @@
     "LOGIN": "Логин",
     "PASSWORD": "Пароль",
     "ERROR": "Имя пользователя или пароль введены неправильно",
-    "BUTTON_VALUE": "Войти"
+    "BUTTON_VALUE": "Войти",
+    "TYPESTUDENT": "Студент",
+    "TYPETEACHER": "Преподаватель"
   },
   "REGISTRATION_PAGE": {
     "LOGIN": "Логин",
@@ -22,5 +25,9 @@
     "AGE": "Возраст",
     "UNIVERSITY": "Университет",
     "REGISTER": "Зарегистрироваться"
+  },
+  "PAGE_NOT_FOUND": {
+    "HEADER": "Этой страницы не существует",
+    "LINK": "Главная страница"
   }
 }
