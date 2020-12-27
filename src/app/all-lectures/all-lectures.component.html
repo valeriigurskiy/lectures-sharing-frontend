@@ -1,5 +1,20 @@
-<div *ngFor="let lecture of lectures">
-  <div>{{lecture.title}}</div>
-  <div>{{lecture.lesson_name}}</div>
-  <div>{{lecture.lesson_description}}</div>
-</div>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Title</th>
+    <th scope="col">Lesson</th>
+    <th scope="col">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let lecture of lectures; index as i">
+    <th scope="row">{{ i + 1 }}</th>
+    <td>
+      <button type="button" class="btn btn-link" (click)="toLecture(lecture.id)">{{ lecture.title }}</button>
+    </td>
+    <td>{{ lecture.name }}</td>
+    <td>{{ lecture.description }}</td>
+  </tr>
+  </tbody>
+</table>

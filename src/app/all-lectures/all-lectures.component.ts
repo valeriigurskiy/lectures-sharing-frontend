@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, PipeTransform} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Lecture} from '../entity/Lecture';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-all-lectures',
@@ -9,12 +10,16 @@ import {Lecture} from '../entity/Lecture';
 })
 export class AllLecturesComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient) { }
+  lectures: Lecture[];
 
-  lectures: Lecture;
-
-  ngOnInit(): void {
-    this.httpClient.get<Lecture>('http://localhost:8080/lectures').subscribe(value => this.lectures = value);
+  constructor(private httpClient: HttpClient, private router: Router) {
+    this.httpClient.get<Lecture[]>('http://localhost:8080/lectures').subscribe(value => this.lectures = value);
   }
 
+  toLecture(id) {
+    this.router.navigate(['lecture' , id], {state: {id}});
+  }
+
+  ngOnInit(): void {
+  }
 }

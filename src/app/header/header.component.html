@@ -4,8 +4,8 @@
       <li><a routerLink="/" class="nav-link">{{ 'HEADER.HOME' | translate}}</a></li>
       <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/register" class="nav-link">{{ 'HEADER.REGISTRATION' | translate}}</a></li>
       <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">{{ 'HEADER.LOGIN' | translate}}</a></li>
-      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/university" class="nav-link">{{ 'HEADER.UNIVERSITY' | translate}}</a></li>
-      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/users" class="nav-link">{{ 'HEADER.USERS' | translate}}</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/lectures" class="nav-link">{{ 'HEADER.LECTURES' | translate}}</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/teachers" class="nav-link">{{ 'HEADER.TEACHERS' | translate}}</a></li>
       <li><a routerLink="/about-us" class="nav-link">{{ 'HEADER.ABOUT_US' | translate}}</a></li>
       <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">{{ 'HEADER.LOG_OUT' | translate}}</a> </li>
     </ul>

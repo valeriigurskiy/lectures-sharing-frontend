@@ -5,9 +5,11 @@
     "REGISTRATION": "Регистрация",
     "UNIVERSITIES": "Университеты",
     "UNIVERSITY": "Университет",
+    "LECTURES": "Лекции",
     "USERS": "Пользователи",
     "ABOUT_US": "Об проекте",
-    "LOG_OUT": "Выйти"
+    "LOG_OUT": "Выйти",
+    "TEACHERS": "Преподаватели"
   },
   "LOGIN_PAGE": {
     "LOGIN": "Логин",

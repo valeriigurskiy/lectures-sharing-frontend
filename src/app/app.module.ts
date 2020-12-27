@@ -21,6 +21,8 @@ import { LogOutComponent } from './log-out/log-out.component';
 import {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { UniversityComponent } from './university/university.component';
+import { TeachersComponent } from './teachers/teachers.component';
+import { SingleLectureComponent } from './single-lecture/single-lecture.component';
 
 const routers = [
   {
@@ -42,14 +44,23 @@ const routers = [
     path: 'login', component: LogInPageComponent
   },
   {
-    path: 'universities', component: AllUniversitiesComponent, canActivate: [AuthguardService]
+    path: 'lectures', component: AllLecturesComponent, canActivate: [AuthguardService]
   },
   {
-    path: 'university', component: UniversityComponent, canActivate: [AuthguardService]
+    path: 'lecture/:id', component: SingleLectureComponent, canActivate: [AuthguardService]
   },
   {
-    path: 'university/:name', component: SinglePageUniversityComponent, canActivate: [AuthguardService]
+    path: 'teachers', component: TeachersComponent, canActivate: [AuthguardService]
   },
+  // {
+  //   path: 'universities', component: AllUniversitiesComponent, canActivate: [AuthguardService]
+  // },
+  // {
+  //   path: 'university', component: UniversityComponent, canActivate: [AuthguardService]
+  // },
+  // {
+  //   path: 'university/:name', component: SinglePageUniversityComponent, canActivate: [AuthguardService]
+  // },
   { path: 'logout', component: LogOutComponent, canActivate: [AuthguardService] },
   {
     path: '**', component: PageNotFoundComponent
@@ -76,7 +87,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     SinglePageUniversityComponent,
     HeaderComponent,
     LogOutComponent,
-    UniversityComponent
+    UniversityComponent,
+    TeachersComponent,
+    SingleLectureComponent
   ],
   imports: [
     BrowserModule,

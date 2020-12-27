@@ -1,5 +1,6 @@
 export class Lecture{
-  lessonName: string;
+  id: number;
+  name: string;
   title: string;
-  lessonDescription: string;
+  description: string;
 }

@@ -5,9 +5,11 @@
     "REGISTRATION": "Зареєструватися",
     "UNIVERSITIES": "Університети",
     "UNIVERSITY": "Університет",
+    "LECTURES": "Лекції",
     "USERS": "Користувачі",
     "ABOUT_US": "Про нас",
-    "LOG_OUT": "Вийти"
+    "LOG_OUT": "Вийти",
+    "TEACHERS": "Викладачі"
   },
   "LOGIN_PAGE": {
     "LOGIN": "Логін",
