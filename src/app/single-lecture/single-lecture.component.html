@@ -1,1 +1,18 @@
-<p>single-lecture works!</p>
+<div style="text-align: center">
+  <div *ngIf="!loaded">
+    LOADING
+  </div>
+
+  <div *ngIf="loaded">
+    description: {{lecture.description}}
+    <div>id: {{lecture.id}}</div>
+    title: {{lecture.title}}
+    name: {{lecture.name}}
+    <br/>
+    <textarea name="roleExplanation" style="width: 500px; height: 100px; resize: none" rows="3"></textarea>
+    <br/>
+<!--    <button (click)="sendComment()">Отправить</button>-->
+  </div>
+
+
+</div>

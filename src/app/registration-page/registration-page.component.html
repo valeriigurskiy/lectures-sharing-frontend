@@ -23,6 +23,6 @@
       </select>
 
     <br/>
-    <button [disabled]="!myGroup.valid" (click)="saveUser(login.value, password.value, name.value, lastname.value, age.value, value.name, '1')">{{ 'REGISTRATION_PAGE.REGISTER' | translate}}</button>
+    <button [disabled]="!myGroup.valid || userExistInDB" (click)="saveUser(login.value, password.value, name.value, lastname.value, age.value, value.name, '1')">{{ 'REGISTRATION_PAGE.REGISTER' | translate}}</button>
 </div>
 </form>

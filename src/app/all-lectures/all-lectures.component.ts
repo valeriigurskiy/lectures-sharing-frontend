@@ -13,7 +13,7 @@ export class AllLecturesComponent implements OnInit {
   lectures: Lecture[];
 
   constructor(private httpClient: HttpClient, private router: Router) {
-    this.httpClient.get<Lecture[]>('http://localhost:8080/lectures').subscribe(value => this.lectures = value);
+    this.httpClient.get<Lecture[]>('http://localhost:8080/university/' + sessionStorage.getItem('university') + '/lectures').subscribe(value => this.lectures = value);
   }
 
   toLecture(id) {
