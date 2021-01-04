@@ -1,7 +1,9 @@
 import {Component, OnInit, PipeTransform} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpRequest} from '@angular/common/http';
 import {Lecture} from '../entity/Lecture';
 import {Router} from '@angular/router';
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {Teacher} from "../entity/Teacher";
 
 @Component({
   selector: 'app-all-lectures',
@@ -11,13 +13,27 @@ import {Router} from '@angular/router';
 export class AllLecturesComponent implements OnInit {
 
   lectures: Lecture[];
+  teachers: Teacher;
+  value: Teacher;
 
-  constructor(private httpClient: HttpClient, private router: Router) {
+  constructor(private httpClient: HttpClient, private router: Router, private modalService: NgbModal) {
     this.httpClient.get<Lecture[]>('http://localhost:8080/university/' + sessionStorage.getItem('university') + '/lectures').subscribe(value => this.lectures = value);
   }
 
   toLecture(id) {
     this.router.navigate(['lecture' , id], {state: {id}});
+  }
+
+  openModal(content){
+    this.modalService.open(content, { centered: true });
+    this.httpClient.get<Teacher>('http://localhost:8080/university/' + sessionStorage.getItem('university') + '/teachers').subscribe(value => this.teachers = value);
+  }
+
+  addLecture(desc, name, title){
+    const university = sessionStorage.getItem('university');
+    const body = {name, desc, title, university};
+    const req = new HttpRequest('POST', 'http://localhost:8080/lectures', body);
+    this.httpClient.request(req).subscribe();
   }
 
   ngOnInit(): void {
