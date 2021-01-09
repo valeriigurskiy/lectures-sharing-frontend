@@ -1,8 +1,8 @@
-<button class="btn btn-outline-primary mb-2 mr-2" (click)="openModal(longContent)">Modal vertically centered</button>
+<button class="btn btn-outline-primary mb-2 mr-2" (click)="openModal(longContent)">Add lecture</button>
 
 <ng-template #longContent let-modal>
   <div class="modal-header">
-    <h4 class="modal-title">Modal title</h4>
+    <h4 class="modal-title">New lecture</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -17,12 +17,13 @@
     <div>Description
       <input #description type="text"/>
     </div>
-    <select [(ngModel)]="value" formControlName="university">
-      <option *ngFor="let teacher of teachers" [ngValue]="teacher">
+    Teacher
+    <select #element [(ngModel)]="value" formControlName="university">
+      <option *ngFor="let teacher of teachers" [value]="teacher.name">
         {{teacher.name}}</option>
     </select>
     <br/>
-    <button type="button" class="btn btn-light" (click)="addLecture(description.value, name.value, title.value)">Add lecture</button>
+    <button type="button" class="btn btn-light" (click)="addLecture(description.value, name.value, title.value, element.value)">Add lecture</button>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>

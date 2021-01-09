@@ -29,9 +29,11 @@ export class AllLecturesComponent implements OnInit {
     this.httpClient.get<Teacher>('http://localhost:8080/university/' + sessionStorage.getItem('university') + '/teachers').subscribe(value => this.teachers = value);
   }
 
-  addLecture(desc, name, title){
+  addLecture(description, name, title, teacher){
     const university = sessionStorage.getItem('university');
-    const body = {name, desc, title, university};
+    const user = sessionStorage.getItem('user');
+    const body = {name, title, description, university, teacher, user};
+    console.log(body);
     const req = new HttpRequest('POST', 'http://localhost:8080/lectures', body);
     this.httpClient.request(req).subscribe();
   }

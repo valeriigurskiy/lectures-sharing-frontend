@@ -22,6 +22,7 @@ export class AuthenticationService {
       if (user.login === login && user.password === password) {
         sessionStorage.setItem('login', login);
         sessionStorage.setItem('university', user.university);
+        sessionStorage.setItem('user', user.name + ' ' + user.lastname);
         this.result = true;
       } else {
         this.result = false;
@@ -34,7 +35,7 @@ export class AuthenticationService {
     this.teachers.forEach(teacher => {
       if (teacher.login === login && teacher.password === password) {
         this.result = true;
-        sessionStorage.setItem('login', login);
+        sessionStorage.setItem('teacher', login);
         sessionStorage.setItem('university', teacher.university);
       } else {
         this.result = false;
@@ -46,6 +47,11 @@ export class AuthenticationService {
   isUserLoggedIn() {
     const user = sessionStorage.getItem('login');
     return !(user === null);
+  }
+
+  isTeacherLoggedIn() {
+    const teacher = sessionStorage.getItem('teacher');
+    return !(teacher === null);
   }
 
   logOut() {
