@@ -23,6 +23,8 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { UniversityComponent } from './university/university.component';
 import { TeachersComponent } from './teachers/teachers.component';
 import { SingleLectureComponent } from './single-lecture/single-lecture.component';
+import { TeacherLecturesComponent } from './teacher-lectures/teacher-lectures.component';
+import {RatingModule} from "ng-starrating";
 
 const routers = [
   {
@@ -45,6 +47,9 @@ const routers = [
   },
   {
     path: 'lectures', component: AllLecturesComponent, canActivate: [AuthguardService]
+  },
+  {
+    path: 'mylectures', component: TeacherLecturesComponent, canActivate: [AuthguardService]
   },
   {
     path: 'lecture/:id', component: SingleLectureComponent, canActivate: [AuthguardService]
@@ -89,7 +94,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     LogOutComponent,
     UniversityComponent,
     TeachersComponent,
-    SingleLectureComponent
+    SingleLectureComponent,
+    TeacherLecturesComponent
   ],
   imports: [
     BrowserModule,
@@ -106,7 +112,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    RatingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

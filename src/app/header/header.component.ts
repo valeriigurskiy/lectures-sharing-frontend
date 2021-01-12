@@ -10,8 +10,7 @@ import '@angular/compiler';
 })
 export class HeaderComponent implements OnInit {
 
-  selectLang: string;
-
+  role: string = localStorage.getItem('role');
   constructor(public loginService: AuthenticationService, public translate: TranslateService) {
     const lang = localStorage.getItem('lang');
     translate.addLangs(['ru', 'ua']);
@@ -19,6 +18,7 @@ export class HeaderComponent implements OnInit {
 
     const browserLang = translate.getBrowserLang();
     translate.use(browserLang.match(/lang/) ? browserLang : lang);
+
   }
 
   ngOnInit(): void {

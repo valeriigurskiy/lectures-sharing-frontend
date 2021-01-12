@@ -14,6 +14,11 @@ export class HomePageComponent implements OnInit {
 
   constructor(private title: Title, private httpClient: HttpClient) {
     this.title.setTitle('Home');
+    if (localStorage.getItem('role')){
+
+    } else {
+      localStorage.setItem('role', 'guess');
+    }
   }
 
   ngOnInit(): void {

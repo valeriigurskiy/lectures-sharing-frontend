@@ -5,6 +5,7 @@
     "REGISTRATION": "Зареєструватися",
     "UNIVERSITIES": "Університети",
     "UNIVERSITY": "Університет",
+    "ALLLECTURES": "Всі лекції",
     "LECTURES": "Лекції",
     "USERS": "Користувачі",
     "ABOUT_US": "Про нас",
@@ -31,5 +32,23 @@
   "PAGE_NOT_FOUND": {
     "HEADER": "Цієї сторінки не існує",
     "LINK": "Головна сторінка"
+  },
+  "ALL_LECTURES_PAGE": {
+    "ADD": "Додати лекцію",
+    "MODAL_TITLE": "Додати нову лекцію",
+    "TITLE": "Назва",
+    "LESSON": "Предмет",
+    "DESCRIPTION": "Опис",
+    "TEACHER": "Викладач",
+    "MODAL_CLOSE": "Закрити"
+  },
+  "TEACHER_LECTURES_PAGE": {
+    "CHECKED": "Перевірені",
+    "UNCHECKED": "Неперевірені",
+    "TITLE": "Назва",
+    "LESSON": "Предмет",
+    "DESCRIPTION": "Опис",
+    "USER": "Студент",
+    "RATING": "Оцінка"
   }
 }

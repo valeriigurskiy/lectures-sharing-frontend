@@ -1,29 +1,29 @@
-<button class="btn btn-outline-primary mb-2 mr-2" (click)="openModal(longContent)">Add lecture</button>
+<button class="btn btn-outline-primary mb-2 mr-2" (click)="openModal(longContent)">{{ 'ALL_LECTURES_PAGE.ADD' | translate }}</button>
 
 <ng-template #longContent let-modal>
   <div class="modal-header">
-    <h4 class="modal-title">New lecture</h4>
+    <h4 class="modal-title">{{ 'ALL_LECTURES_PAGE.MODAL_TITLE' | translate }}</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    <div>Title
+    <div>{{ 'ALL_LECTURES_PAGE.TITLE' | translate }}
       <input #title type="text"/>
     </div>
-    <div>Name
+    <div>{{ 'ALL_LECTURES_PAGE.LESSON' | translate }}
       <input #name type="text"/>
     </div>
-    <div>Description
+    <div>{{ 'ALL_LECTURES_PAGE.DESCRIPTION' | translate }}
       <input #description type="text"/>
     </div>
-    Teacher
+    {{ 'ALL_LECTURES_PAGE.TEACHER' | translate }}
     <select #element [(ngModel)]="value" formControlName="university">
       <option *ngFor="let teacher of teachers" [value]="teacher.name">
         {{teacher.name}}</option>
     </select>
     <br/>
-    <button type="button" class="btn btn-light" (click)="addLecture(description.value, name.value, title.value, element.value)">Add lecture</button>
+    <button type="button" class="btn btn-light" (click)="addLecture(description.value, name.value, title.value, element.value)">{{ 'ALL_LECTURES_PAGE.ADD' | translate }}</button>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
@@ -34,9 +34,9 @@
   <thead>
   <tr>
     <th scope="col">#</th>
-    <th scope="col">Title</th>
-    <th scope="col">Lesson</th>
-    <th scope="col">Description</th>
+    <th scope="col">{{ 'TEACHER_LECTURES_PAGE.TITLE' | translate }}</th>
+    <th scope="col">{{ 'TEACHER_LECTURES_PAGE.LESSON' | translate }}</th>
+    <th scope="col">{{ 'TEACHER_LECTURES_PAGE.DESCRIPTION' | translate }}</th>
   </tr>
   </thead>
   <tbody>

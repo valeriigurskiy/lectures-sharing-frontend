@@ -5,5 +5,5 @@ export class Teacher{
   login: string;
   password: string;
   age: number;
-  university: string;
+  universityname: string;
 }

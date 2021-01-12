@@ -1,0 +1,65 @@
+<ul ngbNav #nav="ngbNav" class="nav-tabs">
+  <li ngbNavItem>
+    <a ngbNavLink>{{ 'TEACHER_LECTURES_PAGE.UNCHECKED' | translate }}</a>
+    <ng-template ngbNavContent>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">{{ 'TEACHER_LECTURES_PAGE.TITLE' | translate }}</th>
+          <th scope="col">{{ 'TEACHER_LECTURES_PAGE.LESSON' | translate }}</th>
+          <th scope="col">{{ 'TEACHER_LECTURES_PAGE.DESCRIPTION' | translate }}</th>
+          <th scope="col">{{ 'TEACHER_LECTURES_PAGE.USER' | translate }}</th>
+          <th scope="col">{{ 'TEACHER_LECTURES_PAGE.RATING' | translate }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let lecture of unCheckedLectures; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>
+            {{ lecture.title }}
+          </td>
+          <td>{{ lecture.name }}</td>
+          <td>{{ lecture.description }}</td>
+          <td>{{ lecture.user }}</td>
+          <td>
+            <ngb-rating [(rate)]="lecture.rating" (hover)="hovered=$event" (leave)="hovered=0" [readonly]="readonly" (click)="rateLecture(lecture.id, hovered)"></ngb-rating>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </ng-template>
+  </li>
+  <li ngbNavItem>
+    <a ngbNavLink>{{ 'TEACHER_LECTURES_PAGE.CHECKED' | translate }}</a>
+    <ng-template ngbNavContent>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">{{ 'TEACHER_LECTURES_PAGE.TITLE' | translate }}</th>
+          <th scope="col">{{ 'TEACHER_LECTURES_PAGE.LESSON' | translate }}</th>
+          <th scope="col">{{ 'TEACHER_LECTURES_PAGE.DESCRIPTION' | translate }}</th>
+          <th scope="col">{{ 'TEACHER_LECTURES_PAGE.USER' | translate }}</th>
+          <th scope="col">{{ 'TEACHER_LECTURES_PAGE.RATING' | translate }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let lecture of checkedLectures; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>
+            {{ lecture.title }}
+          </td>
+          <td>{{ lecture.name }}</td>
+          <td>{{ lecture.description }}</td>
+          <td>{{ lecture.user }}</td>
+          <td>
+            <ngb-rating [(rate)]="lecture.rating" (hover)="hovered=$event" (leave)="hovered=0" [readonly]="readonly" (click)="rateLecture(lecture.id, hovered)"></ngb-rating>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </ng-template>
+  </li>
+</ul>
+<div [ngbNavOutlet]="nav"></div>

@@ -38,7 +38,6 @@ export class LogInPageComponent implements OnInit {
   }
 
   checkTeacherLogin(): void {
-    this.loginService.authenticateTeacher(this.login, this.password);
     if (this.loginService.authenticateTeacher(this.login, this.password)) {
       this.router.navigate(['']);
       this.invalidLogin = false;

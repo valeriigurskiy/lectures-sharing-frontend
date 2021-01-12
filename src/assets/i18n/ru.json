@@ -5,6 +5,7 @@
     "REGISTRATION": "Регистрация",
     "UNIVERSITIES": "Университеты",
     "UNIVERSITY": "Университет",
+    "ALLLECTURES": "Все лекции",
     "LECTURES": "Лекции",
     "USERS": "Пользователи",
     "ABOUT_US": "Об проекте",
@@ -31,5 +32,23 @@
   "PAGE_NOT_FOUND": {
     "HEADER": "Этой страницы не существует",
     "LINK": "Главная страница"
+  },
+  "ALL_LECTURES_PAGE": {
+    "ADD": "Добавить лекцию",
+    "TITLE": "Имя",
+    "MODAL_TITLE": "Добавить новую лекцию",
+    "LESSON": "Предмет",
+    "DESCRIPTION": "Описание",
+    "TEACHER": "Преподаватель",
+    "MODAL_CLOSE": "Закрыть"
+  },
+  "TEACHER_LECTURES_PAGE": {
+    "CHECKED": "Проверенные",
+    "UNCHECKED": "Непроверенные",
+    "TITLE": "Имя",
+    "LESSON": "Предмет",
+    "DESCRIPTION": "Описание",
+    "USER": "Студент",
+    "RATING": "Оценка"
   }
 }

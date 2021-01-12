@@ -4,6 +4,8 @@ import {Lecture} from '../entity/Lecture';
 import {Router} from '@angular/router';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {Teacher} from "../entity/Teacher";
+import {AuthenticationService} from "../services/authentication.service";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-all-lectures',
@@ -16,8 +18,15 @@ export class AllLecturesComponent implements OnInit {
   teachers: Teacher;
   value: Teacher;
 
-  constructor(private httpClient: HttpClient, private router: Router, private modalService: NgbModal) {
+  constructor(private httpClient: HttpClient, private router: Router, private modalService: NgbModal, private translate: TranslateService) {
     this.httpClient.get<Lecture[]>('http://localhost:8080/university/' + sessionStorage.getItem('university') + '/lectures').subscribe(value => this.lectures = value);
+
+    const lang = localStorage.getItem('lang');
+
+    translate.addLangs(['ru', 'ua']);
+    translate.setDefaultLang(localStorage.getItem('lang'));
+    const browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/lang/) ? browserLang : lang);
   }
 
   toLecture(id) {
