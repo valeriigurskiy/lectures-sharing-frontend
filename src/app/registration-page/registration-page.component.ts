@@ -34,6 +34,7 @@ export class RegistrationComponent implements OnInit {
   universities: University;
   value: University;
   userExistInDB: boolean;
+  active = 'user';
 
   ngOnInit(): void {
     this.myGroup = new FormGroup({
@@ -44,7 +45,6 @@ export class RegistrationComponent implements OnInit {
       age: new FormControl('', Validators.min(16)),
       university: new FormControl('', Validators.required)
     });
-
     this.httpClient.get<University>('http://localhost:8080/university').subscribe(value => this.universities = value);
   }
 
@@ -67,13 +67,18 @@ export class RegistrationComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
+  saveTeacher(name: string, lastname: string, login: string, password: string, age: number, university){
+    const universityname = sessionStorage.getItem('university');
+    const body = {name, lastname, login, password, age, university, universityname};
+    console.log(body);
+    const req = new HttpRequest('POST', 'http://localhost:8080/teachers', body);
+    this.httpClient.request(req).subscribe();
+    this.router.navigate(['login']);
+  }
+
   onLoginChange(login: string) {
     this.httpClient.get<any>('http://localhost:8080/users/user/' + login).subscribe(user => {
-      if (user.length === 0) {
-        this.userExistInDB = false;
-      } else {
-        this.userExistInDB = true;
-      }
+      this.userExistInDB = user.length !== 0;
     });
   }
 }

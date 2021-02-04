@@ -23,7 +23,7 @@
         {{teacher.name}}</option>
     </select>
     <br/>
-    <button type="button" class="btn btn-light" (click)="addLecture(description.value, name.value, title.value, element.value)">{{ 'ALL_LECTURES_PAGE.ADD' | translate }}</button>
+    <button type="button" class="btn btn-light" (click)="addLecture(description.value, name.value, title.value, element.value); modal.close('Close click')">{{ 'ALL_LECTURES_PAGE.ADD' | translate }}</button>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>

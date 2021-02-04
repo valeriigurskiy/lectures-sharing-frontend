@@ -27,6 +27,7 @@ export class AllLecturesComponent implements OnInit {
     translate.setDefaultLang(localStorage.getItem('lang'));
     const browserLang = translate.getBrowserLang();
     translate.use(browserLang.match(/lang/) ? browserLang : lang);
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
   toLecture(id) {
@@ -45,6 +46,7 @@ export class AllLecturesComponent implements OnInit {
     console.log(body);
     const req = new HttpRequest('POST', 'http://localhost:8080/lectures', body);
     this.httpClient.request(req).subscribe();
+    window.location.reload();
   }
 
   ngOnInit(): void {

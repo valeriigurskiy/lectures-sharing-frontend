@@ -10,13 +10,15 @@ import {University} from '../entity/University';
 })
 export class HomePageComponent implements OnInit {
 
-  universities: University;
+  images: any[] = [
+    {name: 'Кингстонский Университет', image: 'https://imgclf.112.ua/original/2020/07/17/429558.jpg?timestamp=1594957840'},
+    {name: 'Университет Осло', image: 'https://imgclf.112.ua/original/2020/07/17/429558.jpg?timestamp=1594957840'},
+    {name: 'Университет имени Тараса Шевченка', image: 'https://imgclf.112.ua/original/2020/07/17/429558.jpg?timestamp=1594957840'},
+  ];
 
   constructor(private title: Title, private httpClient: HttpClient) {
     this.title.setTitle('Home');
-    if (localStorage.getItem('role')){
-
-    } else {
+    if (!localStorage.getItem('role')){
       localStorage.setItem('role', 'guess');
     }
   }

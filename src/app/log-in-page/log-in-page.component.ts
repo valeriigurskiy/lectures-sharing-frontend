@@ -25,20 +25,31 @@ export class LogInPageComponent implements OnInit {
     this.title.setTitle('Login');
   }
 
-  login: '';
-  password: '';
+  userLogin: '';
+  teacherLogin: '';
+  userPassword: '';
+  teacherPassword: '';
   myGroup: FormGroup;
   invalidLogin = false;
 
   ngOnInit(): void {
     this.myGroup = new FormGroup({
-      login: new FormControl('', Validators.minLength(4)),
-      password: new FormControl('', Validators.minLength(6))
+      userLogin: new FormControl('', Validators.minLength(4)),
+      userPassword: new FormControl('', Validators.minLength(6)),
+      teacherLogin: new FormControl('', Validators.minLength(4)),
+      teacherPassword: new FormControl('', Validators.minLength(6))
     });
   }
 
+  clearInputs(){
+    this.userLogin = '';
+    this.userPassword = '';
+    this.teacherLogin = '';
+    this.teacherPassword = '';
+  }
+
   checkTeacherLogin(): void {
-    if (this.loginService.authenticateTeacher(this.login, this.password)) {
+    if (this.loginService.authenticateTeacher(this.teacherLogin, this.teacherPassword)) {
       this.router.navigate(['']);
       this.invalidLogin = false;
     } else {
@@ -47,7 +58,7 @@ export class LogInPageComponent implements OnInit {
   }
 
   checkUserLogin(): void {
-    if (this.loginService.authenticateUser(this.login, this.password)) {
+    if (this.loginService.authenticateUser(this.userLogin, this.userPassword)) {
       this.router.navigate(['']);
       this.invalidLogin = false;
     } else {

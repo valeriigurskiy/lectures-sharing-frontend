@@ -19,6 +19,7 @@ export class AuthenticationService {
 
   authenticateUser(login, password) {
     this.users.forEach(user => {
+      console.log(user);
       if (user.login === login && user.password === password) {
         sessionStorage.setItem('login', login);
         sessionStorage.setItem('university', user.university);
@@ -35,10 +36,10 @@ export class AuthenticationService {
 
   authenticateTeacher(login, password) {
     this.teachers.forEach(teacher => {
+      console.log(teacher);
       if (teacher.login === login && teacher.password === password) {
-        this.result = true;
         sessionStorage.setItem('teacher', login);
-        sessionStorage.setItem('university', teacher.universityname);
+        sessionStorage.setItem('university', teacher.university);
         localStorage.removeItem('role');
         localStorage.setItem('role', 'teacher');
         this.result = true;

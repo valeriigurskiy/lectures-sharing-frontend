@@ -1,28 +1,69 @@
 <form [formGroup]="myGroup">
-<div style="text-align: center; margin-top: 4%; font-size: 22px">
-    <div>{{ 'REGISTRATION_PAGE.LOGIN' | translate}}</div>
-      <input #login (change)="onLoginChange(login.value)" type="text" name="log" required maxlength="12" formControlName="login"/>
-    <div *ngIf="userExistInDB">User already exist in db</div>
-    <div>{{ 'REGISTRATION_PAGE.PASSWORD' | translate}}</div>
-    <input #password type="password" name="password" required maxlength="24" style="margin-left: 30px" formControlName="password"/>
-    <img (click)="passwordTrigger(password)" style="width: 30px; height: 30px; margin-bottom: 5px" src="https://cdn0.iconfinder.com/data/icons/mono2/100/view-512.png">
+<div style="text-align: center; margin-top: 10%; font-size: 20px; margin-left: 32%">
+  <div class="d-flex">
+    <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-pills" orientation="vertical">
+      <li ngbNavItem="user">
+        <a ngbNavLink>Студент</a>
+        <ng-template ngbNavContent>
+          <div>{{ 'REGISTRATION_PAGE.LOGIN' | translate}}</div>
+          <input #login (change)="onLoginChange(login.value)" type="text" name="log" required maxlength="12" formControlName="login"/>
+          <div *ngIf="userExistInDB">User already exist in db</div>
+          <div>{{ 'REGISTRATION_PAGE.PASSWORD' | translate}}</div>
+          <input #password type="password" name="password" required maxlength="24" style="margin-left: 30px" formControlName="password"/>
+          <img (click)="passwordTrigger(password)" style="width: 30px; height: 30px; margin-bottom: 5px" src="https://cdn0.iconfinder.com/data/icons/mono2/100/view-512.png">
 
-    <div>{{ 'REGISTRATION_PAGE.NAME' | translate}}</div>
-    <input #name type="text" name="name" required maxlength="12" formControlName="name"/>
+          <div>{{ 'REGISTRATION_PAGE.NAME' | translate}}</div>
+          <input #name type="text" name="name" required maxlength="12" formControlName="name"/>
 
-    <div>{{ 'REGISTRATION_PAGE.LASTNAME' | translate}}</div>
-    <input #lastname type="text" name="lastname" required maxlength="16" formControlName="lastname"/>
+          <div>{{ 'REGISTRATION_PAGE.LASTNAME' | translate}}</div>
+          <input #lastname type="text" name="lastname" required maxlength="16" formControlName="lastname"/>
 
-    <div>{{ 'REGISTRATION_PAGE.AGE' | translate}}</div>
-    <input #age type="number" name="age" required min="16" max="30" formControlName="age"/>
+          <div>{{ 'REGISTRATION_PAGE.AGE' | translate}}</div>
+          <input #age type="number" name="age" required min="16" max="30" formControlName="age"/>
 
-    <div>{{ 'REGISTRATION_PAGE.UNIVERSITY' | translate}}</div>
-      <select [(ngModel)]="value" formControlName="university">
-        <option *ngFor="let university of universities" [ngValue]="university">
-          {{university.name}}</option>
-      </select>
+          <div>{{ 'REGISTRATION_PAGE.UNIVERSITY' | translate}}</div>
+          <select [(ngModel)]="value" formControlName="university">
+            <option *ngFor="let university of universities" [ngValue]="university">
+              {{university.name}}</option>
+          </select>
 
-    <br/>
-    <button [disabled]="!myGroup.valid || userExistInDB" (click)="saveUser(login.value, password.value, name.value, lastname.value, age.value, value.name, '1')">{{ 'REGISTRATION_PAGE.REGISTER' | translate}}</button>
+          <br/>
+          <button [disabled]="!myGroup.valid || userExistInDB" (click)="saveUser(login.value, password.value, name.value, lastname.value, age.value, value.name, '1')">{{ 'REGISTRATION_PAGE.REGISTER' | translate}}</button>
+        </ng-template>
+      </li>
+      <li ngbNavItem="teacher">
+        <a ngbNavLink>Преподаватель</a>
+        <ng-template ngbNavContent>
+          <div>{{ 'REGISTRATION_PAGE.LOGIN' | translate}}</div>
+          <input #login (change)="onLoginChange(login.value)" type="text" name="log" required maxlength="12" formControlName="login"/>
+          <div *ngIf="userExistInDB">User already exist in db</div>
+          <div>{{ 'REGISTRATION_PAGE.PASSWORD' | translate}}</div>
+          <input #password type="password" name="password" required maxlength="24" style="margin-left: 30px" formControlName="password"/>
+          <img (click)="passwordTrigger(password)" style="width: 30px; height: 30px; margin-bottom: 5px" src="https://cdn0.iconfinder.com/data/icons/mono2/100/view-512.png">
+
+          <div>{{ 'REGISTRATION_PAGE.NAME' | translate}}</div>
+          <input #name type="text" name="name" required maxlength="12" formControlName="name"/>
+
+          <div>{{ 'REGISTRATION_PAGE.LASTNAME' | translate}}</div>
+          <input #lastname type="text" name="lastname" required maxlength="16" formControlName="lastname"/>
+
+          <div>{{ 'REGISTRATION_PAGE.AGE' | translate}}</div>
+          <input #age type="number" name="age" required min="16" max="30" formControlName="age"/>
+
+          <div>{{ 'REGISTRATION_PAGE.UNIVERSITY' | translate}}</div>
+          <select [(ngModel)]="value" formControlName="university">
+            <option *ngFor="let university of universities" [ngValue]="university">
+              {{university.name}}</option>
+          </select>
+
+          <br/>
+          <button [disabled]="!myGroup.valid || userExistInDB" (click)="saveTeacher(name.value, lastname.value, login.value, password.value, age.value, value.name)">{{ 'REGISTRATION_PAGE.REGISTER' | translate}}</button>
+        </ng-template>
+      </li>
+    </ul>
+
+    <div [ngbNavOutlet]="nav" class="ml-4"></div>
+  </div>
+
 </div>
 </form>
